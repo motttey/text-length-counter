@@ -81,7 +81,7 @@ function Header() {
     <header className="hero is-dark is-bold">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">Text Length Counter</h1>
+          <h1 className="title">文字数 & 単語数 カウンタ</h1>
         </div>
       </div>
     </header>
