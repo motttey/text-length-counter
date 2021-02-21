@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchImages } from "./api";
+import TextareaAutosize from 'react-textarea-autosize';
 
 function Form(props) {
 
@@ -14,15 +15,16 @@ function Form(props) {
           <div class="field">
             <label class="label">文字列を入力してください</label>
             <div class="control">
-              <textarea
+              <TextareaAutosize
                 class="textarea"
-                placeholder="Textarea"
+                placeholder="文字列を入力してください"
                 type="text"
                 name="text"
+                maxRows="20"
                 value={props.textInput}
                 onChange={(e) => props.onChangeInput(e.target.value)}
               >
-              </textarea>
+              </TextareaAutosize>
             </div>
           </div>
         </div>
