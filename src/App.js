@@ -42,14 +42,14 @@ function Output(props) {
             <div class="tile is-parent">
               <article class="tile is-child notification is-info">
                 <p class="title">文字数</p>
-                <p class="subtitle">{props.textInput.length}</p>
+                <p class="subtitle">{props.textInput.length} 文字</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child notification is-primary">
                 <p class="title">スペースなし</p>
                 <p class="subtitle">
-                  {props.textInput.replace(/\s/g, '').length}
+                  {props.textInput.replace(/\s/g, '').length} 文字
                 </p>
               </article>
             </div>
@@ -57,7 +57,7 @@ function Output(props) {
               <article class="tile is-child notification is-success">
                 <p class="title">改行</p>
                 <p class="subtitle">
-                  {props.textInput.split("\n").length}
+                  {props.textInput.split("\n").length} 個
                 </p>
               </article>
             </div>
