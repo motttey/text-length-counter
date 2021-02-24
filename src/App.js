@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { fetchImages } from "./api";
+import { useState } from "react";
 import TextareaAutosize from 'react-textarea-autosize';
+import React from 'react';
 
 function Form(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // const { breed } = event.target.elements;
+    props.onChangeInput('');
   }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div className="control is-expanded">
-          <div class="field">
+      <form>
+        <div className="control">
+          <div class="field is-expanded">
             <label class="label">文字列を入力してください</label>
             <div class="control">
               <TextareaAutosize
@@ -25,6 +25,13 @@ function Form(props) {
                 onChange={(e) => props.onChangeInput(e.target.value)}
               >
               </TextareaAutosize>
+            </div>
+          </div>
+          <div class="field is-right">
+            <div class="control">
+              <button class="button" onClick={handleSubmit}>
+                Clear
+              </button>
             </div>
           </div>
         </div>
@@ -88,10 +95,6 @@ function Header() {
       </div>
     </header>
   );
-}
-
-function Loading() {
-  return <p>Loading...</p>;
 }
 
 function Main() {
