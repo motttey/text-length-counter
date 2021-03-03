@@ -48,23 +48,23 @@ function Output(props) {
           <div class="tile">
             <div class="tile is-parent">
               <article class="tile is-child notification is-info">
-                <p class="title">文字数</p>
-                <p class="subtitle">{props.textInput.length} 文字</p>
+                <p class="title is-5">文字数</p>
+                <p>{props.textInput.length} 文字</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child notification is-primary">
-                <p class="title">スペースなし</p>
-                <p class="subtitle">
+                <p class="title is-5">スペースなし</p>
+                <p>
                   {props.textInput.replace(/\s/g, '').length} 文字
                 </p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child notification is-success">
-                <p class="title">改行</p>
-                <p class="subtitle">
-                  {props.textInput.split("\n").length} 個
+                <p class="title is-5">改行</p>
+                <p>
+                  {props.textInput.split("\n").length - 1} 個
                 </p>
               </article>
             </div>
@@ -72,8 +72,8 @@ function Output(props) {
           <div class="tile">
             <div class="tile is-parent">
               <article class="tile is-child notification">
-                <p class="title">改行を除去した文字列</p>
-                <p class="subtitle">
+                <p class="title is-5">改行を除去した文字列</p>
+                <p>
                   {props.textInput.replace(/\n/g, ' ')}
                 </p>
               </article>
