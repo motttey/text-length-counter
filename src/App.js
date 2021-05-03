@@ -43,8 +43,8 @@ function Form(props) {
 function Output(props) {
   return (
     <div class="container">
-      <div class="tile is-parent">
-        <div class="tile">
+      <div class="columns">
+        <div class="column">
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-info">
               <p class="title is-5">文字数</p>
@@ -64,7 +64,7 @@ function Output(props) {
             </article>
           </div>
         </div>
-        <div class="tile">
+        <div class="column">
           <div class="tile is-parent">
             <article class="tile is-child notification">
               <p class="title is-5">改行を除去した文字列</p>
