@@ -9,7 +9,7 @@ function Form(props) {
     props.onChangeInput('');
   }
   return (
-    <div>
+    <div class="container">
       <form>
         <div className="control">
           <div class="field is-expanded">
@@ -43,41 +43,35 @@ function Form(props) {
 function Output(props) {
   return (
     <div class="container">
-      <div class="tile is-ancestor">
-        <div class="tile is-vertical">
-          <div class="tile">
-            <div class="tile is-parent">
-              <article class="tile is-child notification is-info">
-                <p class="title is-5">文字数</p>
-                <p>{props.textInput.length} 文字</p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child notification is-primary">
-                <p class="title is-5">スペースなし</p>
-                <p>
-                  {props.textInput.replace(/\s/g, '').length} 文字
-                </p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child notification is-success">
-                <p class="title is-5">改行</p>
-                <p>
-                  {props.textInput.split("\n").length - 1} 個
-                </p>
-              </article>
-            </div>
+      <div class="tile is-parent">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-info">
+              <p class="title is-5">文字数</p>
+              <p>{props.textInput.length} 文字</p>
+            </article>
+            <article class="tile is-child notification is-primary">
+              <p class="title is-5">スペースなし</p>
+              <p>
+                {props.textInput.replace(/\s/g, '').length} 文字
+              </p>
+            </article>
+            <article class="tile is-child notification is-success">
+              <p class="title is-5">改行</p>
+              <p>
+                {props.textInput.split("\n").length - 1} 個
+              </p>
+            </article>
           </div>
-          <div class="tile">
-            <div class="tile is-parent">
-              <article class="tile is-child notification">
-                <p class="title is-5">改行を除去した文字列</p>
-                <p>
-                  {props.textInput.replace(/\n/g, ' ')}
-                </p>
-              </article>
-            </div>
+        </div>
+        <div class="tile">
+          <div class="tile is-parent">
+            <article class="tile is-child notification">
+              <p class="title is-5">改行を除去した文字列</p>
+              <p>
+                {props.textInput.replace(/\n/g, ' ')}
+              </p>
+            </article>
           </div>
         </div>
       </div>
@@ -107,16 +101,16 @@ function Main() {
   return (
     <main>
       <section className="section">
-        <div className="container">
-          <Form
-            onChangeInput={onChangeInput}
-            textInput={textInput}
-          />
-        </div>
-      </section>
-      <section className="section">
-        <div className="container">
-          <Output textInput={textInput} />
+        <div className="columns">
+          <div className="column is-one-third">
+            <Form
+              onChangeInput={onChangeInput}
+              textInput={textInput}
+            />
+          </div>
+          <div className="column">
+            <Output textInput={textInput} />
+          </div>
         </div>
       </section>
     </main>
