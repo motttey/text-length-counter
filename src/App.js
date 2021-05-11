@@ -9,7 +9,7 @@ function Form(props) {
     props.onChangeInput('');
   }
   return (
-    <div class="container">
+    <div className="container">
       <form>
         <div className="control">
           <div class="field is-expanded">
@@ -42,8 +42,13 @@ function Form(props) {
 
 function Output(props) {
   const japaneseCpm = 600.0;
+  const englishWpm = 800.0;
+  function orgRound(value, base) {
+    return Math.round(value * base) / base;
+  }
   function getReadTIme(str) {
-    return Math.round(str.length / japaneseCpm, 2)
+    const englishCount = (str.match(/[ -~]/g) || []).length;
+    return orgRound((str.length - englishCount) / japaneseCpm + englishCount / englishWpm, 100);
   }
   return (
     <div class="container">
