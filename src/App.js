@@ -41,6 +41,10 @@ function Form(props) {
 }
 
 function Output(props) {
+  const japaneseCpm = 600.0;
+  function getReadTIme(str) {
+    return Math.round(str.length / japaneseCpm, 2)
+  }
   return (
     <div class="container">
       <div class="columns">
@@ -60,6 +64,12 @@ function Output(props) {
               <p class="title is-5">改行</p>
               <p>
                 {props.textInput.split("\n").length - 1} 個
+              </p>
+            </article>
+            <article class="tile is-child notification is-danger">
+              <p class="title is-5">読了時間</p>
+              <p>
+                {getReadTIme(props.textInput)}  分
               </p>
             </article>
           </div>
