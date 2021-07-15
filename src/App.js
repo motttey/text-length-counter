@@ -71,6 +71,13 @@ function Output(props) {
                 {props.textInput.split("\n").length - 1} 個
               </p>
             </article>
+            <article class="tile is-child notification is-warning">
+              <p class="title is-5">単語数 (英数字)</p>
+              <p>
+                {props.textInput.split(/[\x20\u3000]/)
+                  .filter((s) => s.length >= 1).length} 個
+              </p>
+            </article>
             <article class="tile is-child notification is-danger">
               <p class="title is-5">読了時間</p>
               <p>
