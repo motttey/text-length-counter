@@ -43,13 +43,15 @@ function Form(props) {
 function Output(props) {
   const japaneseCpm = 600.0;
   const englishWpm = 800.0;
-  function orgRound(value, base) {
+  const orgRound = (value, base) => {
     return Math.round(value * base) / base;
-  }
-  function getReadTIme(str) {
+  };
+
+  const getReadTIme = (str) => {
     const englishCount = (str.match(/[ -~]/g) || []).length;
     return orgRound((str.length - englishCount) / japaneseCpm + englishCount / englishWpm, 100);
-  }
+  };
+  
   return (
     <div class="container">
       <div class="columns">
@@ -71,7 +73,7 @@ function Output(props) {
                 {props.textInput.split("\n").length - 1} 個
               </p>
             </article>
-            <article class="tile is-child notification is-warning">
+            <article class="tile is-child notification is-link">
               <p class="title is-5">単語数 (英数字)</p>
               <p>
                 {props.textInput.split(/[\x20\u3000]/)
