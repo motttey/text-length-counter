@@ -8,6 +8,7 @@ function Form(props) {
     event.preventDefault();
     props.onChangeInput('');
   }
+
   return (
     <div className="container">
       <form>
@@ -51,7 +52,18 @@ function Output(props) {
     const englishCount = (str.match(/[ -~]/g) || []).length;
     return orgRound((str.length - englishCount) / japaneseCpm + englishCount / englishWpm, 100);
   };
-  
+
+  const textWithoutNewLine = props.textInput.replace(/\n/g, ' ')
+  const handleCopy = async () => {
+    // clickboard apiでコピー
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(textWithoutNewLine)
+        .then(() =>{
+          alert("copied");
+        })
+    }
+  }
+
   return (
     <div class="container">
       <div class="columns">
@@ -90,12 +102,17 @@ function Output(props) {
         </div>
         <div class="column">
           <div class="tile is-parent">
-            <article class="tile is-child notification">
-              <p class="title is-5">改行を除去した文字列</p>
-              <p>
-                {props.textInput.replace(/\n/g, ' ')}
-              </p>
-            </article>
+            <div class="tile is-child ">
+              <article className="notification">
+                <p class="title is-5">改行を除去した文字列</p>
+                <p>
+                  {textWithoutNewLine}
+                </p>
+              </article>
+              <button className="button" onClick={handleCopy}>
+                Copy
+              </button>
+            </div>
           </div>
         </div>
       </div>
