@@ -13,11 +13,11 @@ function Form(props) {
     <div className="container">
       <form>
         <div className="control">
-          <div class="field is-expanded">
-            <label class="label">文字列を入力してください</label>
-            <div class="control">
+          <div className="field is-expanded">
+            <label className="label">文字列を入力してください</label>
+            <div className="control">
               <TextareaAutosize
-                class="textarea"
+                className="textarea"
                 placeholder="文字列を入力してください"
                 type="text"
                 name="text"
@@ -28,9 +28,9 @@ function Form(props) {
               </TextareaAutosize>
             </div>
           </div>
-          <div class="field is-right">
-            <div class="control">
-              <button class="button" onClick={handleSubmit}>
+          <div className="field is-right">
+            <div className="control">
+              <button className="button" onClick={handleSubmit}>
                 Clear
               </button>
             </div>
@@ -65,46 +65,46 @@ function Output(props) {
   }
 
   return (
-    <div class="container">
-      <div class="columns">
-        <div class="column">
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-info">
-              <p class="title is-5">文字数</p>
+    <div className="container">
+      <div className="columns">
+        <div className="column">
+          <div className="tile is-parent is-vertical">
+            <article className="tile is-child notification is-info">
+              <p className="title is-5">文字数</p>
               <p>{props.textInput.length} 文字</p>
             </article>
-            <article class="tile is-child notification is-primary">
-              <p class="title is-5">スペースなし</p>
+            <article className="tile is-child notification is-primary">
+              <p className="title is-5">スペースなし</p>
               <p>
                 {props.textInput.replace(/\s/g, '').length} 文字
               </p>
             </article>
-            <article class="tile is-child notification is-success">
-              <p class="title is-5">改行</p>
+            <article className="tile is-child notification is-success">
+              <p className="title is-5">改行</p>
               <p>
                 {props.textInput.split("\n").length - 1} 個
               </p>
             </article>
-            <article class="tile is-child notification is-link">
-              <p class="title is-5">単語数 (英数字)</p>
+            <article className="tile is-child notification is-link">
+              <p className="title is-5">単語数 (英数字)</p>
               <p>
                 {props.textInput.split(/[\x20\u3000]/)
                   .filter((s) => s.length >= 1).length} 個
               </p>
             </article>
-            <article class="tile is-child notification is-danger">
-              <p class="title is-5">読了時間</p>
+            <article className="tile is-child notification is-danger">
+              <p className="title is-5">読了時間</p>
               <p>
                 {getReadTIme(props.textInput)}  分
               </p>
             </article>
           </div>
         </div>
-        <div class="column">
-          <div class="tile is-parent">
-            <div class="tile is-child ">
+        <div className="column">
+          <div className="tile is-parent">
+            <div className="tile is-child ">
               <article className="notification">
-                <p class="title is-5">改行を除去した文字列</p>
+                <p className="title is-5">改行を除去した文字列</p>
                 <p>
                   {textWithoutNewLine}
                 </p>
