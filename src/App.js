@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TextareaAutosize from 'react-textarea-autosize';
 import React from 'react';
 
@@ -44,6 +44,9 @@ function Form(props) {
 function Output(props) {
   const japaneseCpm = 600.0;
   const englishWpm = 800.0;
+
+  const [hasCopied, setHasCopied] = useState(false);
+
   const orgRound = (value, base) => {
     return Math.round(value * base) / base;
   };
@@ -54,12 +57,18 @@ function Output(props) {
   };
 
   const textWithoutNewLine = props.textInput.replace(/\n/g, ' ')
+
+  useEffect(() => {
+    // 入力文字列が更新されたらされたらCopied!を消す
+    setHasCopied(false);
+  }, [props.textInput])
+
   const handleCopy = async () => {
     // clickboard apiでコピー
     if (navigator.clipboard) {
       navigator.clipboard.writeText(textWithoutNewLine)
         .then(() =>{
-          alert("copied");
+          setHasCopied(true);
         })
     }
   }
@@ -109,9 +118,16 @@ function Output(props) {
                   {textWithoutNewLine}
                 </p>
               </article>
-              <button className="button" onClick={handleCopy}>
-                Copy
-              </button>
+              <div className="tile is-child ">
+                <button className="button" onClick={handleCopy}>
+                  Copy
+                </button>
+                {hasCopied &&
+                  <span className="tag is-success is-large mx-1">
+                    Copied!
+                  </span>
+                }
+              </div>
             </div>
           </div>
         </div>
