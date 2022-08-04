@@ -156,7 +156,9 @@ function Main() {
   }
   // 属性名は on に UpperCamelCase のイベント名をつけたもの
   return (
-    <main>
+    <main style={{
+      minHeight: "80vh"
+    }}>
       <section className="section">
         <div className="columns">
           <div className="column is-one-third">
@@ -177,7 +179,9 @@ function Main() {
 function Footer() {
   const style = {
     width: "100%",
-    position: "absolute",
+    minHeight: "10vh",
+    position: "relative",
+    padding: "1rem",
     bottom: 0
   };
 
@@ -191,8 +195,13 @@ function Footer() {
 }
 
 function App() {
+  const style = {
+    width: "100%",
+    minHeight: "100vh"
+  };
+
   return (
-    <div>
+    <div style={style}>
       <Header />
       <Main />
       <Footer />
