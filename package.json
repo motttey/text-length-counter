@@ -1,15 +1,16 @@
 {
-  "name": "react-tutorial-dog",
+  "name": "text-length-counter",
   "version": "1.0.0",
-  "description": "",
+  "description": "text length counter",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "build": "react-scripts build",
     "start": "react-scripts start"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "motttey",
+  "license": "MIT",
   "dependencies": {
     "bulma": "^0.9.4",
     "react": "^18.1.1",
