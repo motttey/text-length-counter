@@ -188,7 +188,7 @@ function Footer() {
   return (
     <footer className="footer" style={style}>
       <div className="content has-text-centered">
-        <p>Text counter by motttey</p>
+        <p>text length counter by motttey</p>
       </div>
     </footer>
   );
