@@ -3,7 +3,6 @@ import TextareaAutosize from 'react-textarea-autosize';
 import React from 'react';
 
 function Form(props) {
-
   function handleSubmit(event) {
     event.preventDefault();
     props.onChangeInput('');
@@ -137,10 +136,15 @@ function Output(props) {
 }
 
 function Header() {
+  const style = {
+    width: "100%",
+    padding: 0
+  };
+
   return (
     <header className="hero is-dark is-bold">
       <div className="hero-body">
-        <div className="container">
+        <div className="container" style={style}>
           <h1 className="title">文字数 & 単語数 カウンタ</h1>
         </div>
       </div>
@@ -179,7 +183,7 @@ function Main() {
 function Footer() {
   const style = {
     width: "100%",
-    minHeight: "10vh",
+    minHeight: "5vh",
     position: "relative",
     padding: "1rem",
     bottom: 0
@@ -188,7 +192,7 @@ function Footer() {
   return (
     <footer className="footer" style={style}>
       <div className="content has-text-centered">
-        <p>text length counter by motttey</p>
+        <p>text-length-counter</p>
       </div>
     </footer>
   );
