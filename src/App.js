@@ -15,16 +15,20 @@ function Form(props) {
           <div className="field is-expanded">
             <label className="label">文字列を入力してください</label>
             <div className="control">
-              <TextareaAutosize
+              <textarea
                 className="textarea"
                 placeholder="文字列を入力してください"
                 type="text"
                 name="text"
                 maxRows="20"
                 value={props.textInput}
+                style={{
+                  formSizing: "content",
+                  minHeight: "4lh"
+                }}
                 onChange={(e) => props.onChangeInput(e.target.value)}
               >
-              </TextareaAutosize>
+              </textarea>
             </div>
           </div>
           <div className="field is-right">
