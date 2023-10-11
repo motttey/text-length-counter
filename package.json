@@ -6,20 +6,18 @@
   "main": "index.js",
   "scripts": {
     "build": "react-scripts build",
-    "start": "react-scripts start",
-    "preinstall": "npx npm-force-resolutions"
+    "start": "react-scripts start"
   },
   "keywords": [],
   "author": "motttey",
   "license": "MIT",
   "dependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.22.11",
     "bulma": "^0.9.4",
     "react": "^18.1.1",
     "react-dom": "^18.1.1"
   },
-  "resolutions": {
-    "nth-check": "^2.1.1"
-  },
+  "resolutions": {},
   "browserslist": {
     "production": [
       ">0.2%",
