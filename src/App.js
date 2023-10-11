@@ -158,10 +158,11 @@ function Header() {
 function Main() {
   const [textInput, setTextInput] = useState('');
 
+  // 属性名は on に UpperCamelCase のイベント名をつけたもの
   function onChangeInput(input) {
     setTextInput(input);
   }
-  // 属性名は on に UpperCamelCase のイベント名をつけたもの
+
   return (
     <main style={{
       minHeight: "80vh"
@@ -195,7 +196,7 @@ function Footer() {
   return (
     <footer className="footer" style={style}>
       <div className="content has-text-centered">
-        <p>text-length-counter</p>
+        <p>text-length-counter by {new Date().getFullYear()} motttey</p>
       </div>
     </footer>
   );
