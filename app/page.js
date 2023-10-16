@@ -1,3 +1,6 @@
+"use client"
+import "bulma/css/bulma.css";
+
 import { useState, useEffect } from "react";
 import React from 'react';
 
@@ -19,7 +22,6 @@ function Form(props) {
                 placeholder="文字列を入力してください"
                 type="text"
                 name="text"
-                maxRows="20"
                 value={props.textInput}
                 style={{
                   formSizing: "content",
@@ -202,7 +204,7 @@ function Footer() {
   );
 }
 
-function App() {
+export default async function Page() {
   const style = {
     width: "100%",
     minHeight: "100vh"
@@ -216,5 +218,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
