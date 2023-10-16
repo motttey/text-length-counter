@@ -13,7 +13,6 @@
   "author": "motttey",
   "license": "MIT",
   "dependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.22.11",
     "bulma": "^0.9.4",
     "next": "^13.5.4",
     "react": "^18.1.1",
@@ -33,6 +32,5 @@
     ]
   },
   "devDependencies": {
-    "react-scripts": "^5.0.1"
   }
 }
