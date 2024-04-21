@@ -1,7 +1,21 @@
 "use client"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Form(props) {
+    const textarea = useRef(null);
+
+    function adjustHeight() {
+      textarea.current.style.height = "inherit";
+      textarea.current.style.height = `${textarea.current.scrollHeight}px`;
+    }
+
+    function handleOnchange(event) {
+      event.preventDefault();
+      adjustHeight();
+      props.onChangeInput(event.target.value);
+    }
+  
+
     function handleSubmit(event) {
       event.preventDefault();
       props.onChangeInput('');
@@ -15,6 +29,7 @@ function Form(props) {
               <label className="label">文字列を入力してください</label>
               <div className="control">
                 <textarea
+                  ref={textarea}
                   className="textarea"
                   placeholder="文字列を入力してください"
                   type="text"
@@ -24,7 +39,7 @@ function Form(props) {
                     formSizing: "content",
                     minHeight: "4lh"
                   }}
-                  onChange={(e) => props.onChangeInput(e.target.value)}
+                  onChange={(e) => handleOnchange(e)}
                 >
                 </textarea>
               </div>
