@@ -4,19 +4,19 @@ import { useState, useEffect, useRef } from "react";
 function Form(props) {
     const textarea = useRef(null);
 
-    function adjustHeight() {
+    /* 入力文字数に応じてテキストエリアの縦幅を調整 */
+    const adjustHeight = () => {
       textarea.current.style.height = "inherit";
       textarea.current.style.height = `${textarea.current.scrollHeight}px`;
     }
 
-    function handleOnchange(event) {
+    const handleOnchange = (event) => {
       event.preventDefault();
       adjustHeight();
       props.onChangeInput(event.target.value);
     }
   
-
-    function handleSubmit(event) {
+    const handleSubmit = (event) => {
       event.preventDefault();
       props.onChangeInput('');
     }
@@ -74,11 +74,6 @@ function Form(props) {
   
     const textWithoutNewLine = props.textInput.replace(/\n/g, ' ')
   
-    useEffect(() => {
-      // 入力文字列が更新されたらされたらCopied!を消す
-      setHasCopied(false);
-    }, [props.textInput])
-  
     const handleCopy = async () => {
       // clickboard apiでコピー
       if (navigator.clipboard) {
@@ -88,6 +83,11 @@ function Form(props) {
           })
       }
     }
+  
+    useEffect(() => {
+      // 入力文字列が更新されたらされたらCopied!を消す
+      setHasCopied(false);
+    }, [props.textInput])
   
     return (
       <div className="container">
@@ -156,7 +156,7 @@ function Form(props) {
     const [textInput, setTextInput] = useState('');
   
     // 属性名は on に UpperCamelCase のイベント名をつけたもの
-    function onChangeInput(input) {
+    const onChangeInput = (input) => {
       setTextInput(input);
     }
   
