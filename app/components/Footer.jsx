@@ -10,7 +10,7 @@ export default function Footer() {
     return (
       <footer className="footer" style={style}>
         <div className="content has-text-centered">
-          <p>text-length-counter by {new Date().getFullYear()} motttey</p>
+          <p>text-length-counter</p>
         </div>
       </footer>
     );
