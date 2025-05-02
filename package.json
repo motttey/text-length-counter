@@ -13,10 +13,10 @@
   "author": "motttey",
   "license": "MIT",
   "dependencies": {
-    "bulma": "^0.9.4",
-    "next": "^14.2.26",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "bulma": "^1.0.4",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "resolutions": {},
   "browserslist": {
