@@ -10,9 +10,11 @@ function Form(props) {
       textarea.current.style.height = `${textarea.current.scrollHeight}px`;
     }
 
-    const handleOnchange = (event) => {
-      event.preventDefault();
+    useEffect(() => {
       adjustHeight();
+    }, [props.textInput]);
+
+    const handleOnchange = (event) => {
       props.onChangeInput(event.target.value);
     }
   
@@ -36,10 +38,9 @@ function Form(props) {
                   name="text"
                   value={props.textInput}
                   style={{
-                    formSizing: "content",
                     minHeight: "4lh"
                   }}
-                  onChange={(e) => handleOnchange(e)}
+                  onChange={handleOnchange}
                 >
                 </textarea>
               </div>
