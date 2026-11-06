@@ -18,14 +18,13 @@ function Form(props) {
       props.onChangeInput(event.target.value);
     }
   
-    const handleSubmit = (event) => {
-      event.preventDefault();
+    const handleClear = () => {
       props.onChangeInput('');
     }
   
     return (
       <div className="container">
-        <form>
+        <div>
           <div className="control">
             <div className="field is-expanded">
               <label className="label">文字列を入力してください</label>
@@ -34,8 +33,6 @@ function Form(props) {
                   ref={textarea}
                   className="textarea"
                   placeholder="文字列を入力してください"
-                  type="text"
-                  name="text"
                   value={props.textInput}
                   style={{
                     minHeight: "4lh"
@@ -47,13 +44,13 @@ function Form(props) {
             </div>
             <div className="field is-right">
               <div className="control">
-                <button className="button" onClick={handleSubmit}>
+                <button type="button" className="button" onClick={handleClear}>
                   Clear
                 </button>
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     );
   }
